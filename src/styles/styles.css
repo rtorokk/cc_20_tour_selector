@@ -78,3 +78,9 @@
 .tour-card {
     margin: 20px; /* Add spacing between cards */
 }
+.tour-card img {
+    width: 100%; /* Full width of the card */
+    height: 200px; /* Fixed height for all images */
+    object-fit: cover; /* Crop the image to fit the dimensions */
+    border-bottom: 1px solid #e0e0e0; /* Optional: Add a separator line */
+}
