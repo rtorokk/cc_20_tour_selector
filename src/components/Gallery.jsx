@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import TourCard from './TourCard';
-import DestinationSelector from './DestinationSelector';
-
+import React, { useEffect, useState } from 'react';// import React and hooks
+import TourCard from './TourCard';// import TourCard component
+import DestinationSelector from './DestinationSelector';// import DestinationSelector component
 // Gallery is responsible for fetching tours and rendering TourCard components
 const Gallery = ({ tours, setTours, onRemove }) => {
     // local state to manage loading, errors, and selected tour name
@@ -12,8 +11,8 @@ const Gallery = ({ tours, setTours, onRemove }) => {
     // function to fetch tours from API
     const fetchTours = async () => {
         try {
-            const res = await fetch('https://www.course-api.com/react-tours-project');
-            const data = await res.json();
+            const res = await fetch('https://www.course-api.com/react-tours-project'); // Fetch data from API
+            const data = await res.json();// Parse the JSON response
             // Map the API data to only the fields we need
             const trimmed = data.map((tour) => ({
                 id: tour.id,
