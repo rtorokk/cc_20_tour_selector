@@ -22,7 +22,7 @@ const TourCard = ({ id, name, info, price, image, onRemove }) => {
 
       {/* Button to remove tour */}
       <button className="btn-remove" onClick={() => onRemove(id)}>
-        Remove Tour
+        Not Interested
       </button>
     </article>
   );
