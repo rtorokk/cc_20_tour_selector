@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import TourCard from './TourCard';
+import DestinationSelector from './DestinationSelector';
 
 // Gallery is responsible for fetching tours and rendering TourCard components
 const Gallery = ({ tours, setTours, onRemove }) => {
-    // local state to manage loading and errors
+    // local state to manage loading, errors, and selected tour name
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+    const [selectedName, setSelectedName] = useState('All'); // State for dropdown selection
 
     // function to fetch tours from API
     const fetchTours = async () => {
@@ -32,38 +34,49 @@ const Gallery = ({ tours, setTours, onRemove }) => {
     useEffect(() => {
         fetchTours();
     }, []); // empty dependency array means run once after mount
-// Render loading state
-if (loading) {
-    return <h2>Loading...</h2>;
-}
 
-// Render error state
-if (error) {
-    return <h2>Something went wrong...</h2>;
-}
+    // Render loading state
+    if (loading) {
+        return <h2>Loading...</h2>;
+    }
 
-// Render if no tours remain
-if (tours.length === 0) {
+    // Render error state
+    if (error) {
+        return <h2>Something went wrong...</h2>;
+    }
+
+    // Render if no tours remain
+    if (tours.length === 0) {
+        return (
+            <>
+                <h2>No tours left</h2>
+                <button onClick={fetchTours}>Refresh</button>
+            </>
+        );
+    }
+
+    // Filter tours based on the selected name
+    const filteredTours = selectedName === 'All' ? tours : tours.filter((tour) => tour.name === selectedName);
+
     return (
-        <>
-            <h2>No tours left</h2>
-            <button onClick={fetchTours}>Refresh</button>
-        </>
-    );
-}
-
-// Render the list of TourCards
-return (
-    <section className="gallery">
-        {tours.map((tour) => (
-            <TourCard
-                key={tour.id}
-                {...tour} // spread operator to pass all props
-                onRemove={onRemove} // pass onRemove function to TourCard
+        <section className="gallery">
+            {/* DestinationSelector component */}
+            <DestinationSelector
+                tours={tours}
+                selectedName={selectedName}
+                setSelectedName={setSelectedName}
             />
-        ))}
-    </section>
-);
+
+            {/* Render the list of TourCards */}
+            {filteredTours.map((tour) => (
+                <TourCard
+                    key={tour.id}
+                    {...tour} // spread operator to pass all props
+                    onRemove={onRemove} // pass onRemove function to TourCard
+                />
+            ))}
+        </section>
+    );
 };
 
 export default Gallery;
