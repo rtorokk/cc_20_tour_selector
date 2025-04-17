@@ -1,8 +1,8 @@
 .tour-card {
-    background-color: #f9f9f9; /* Light gray background */
-    border: 1px solid #e0e0e0; /* Subtle border */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    background-color: #fff; /* White background for a clean look */
+    border: 2px solid #ffb3d9; /* Subtle pink border */
+    border-radius: 15px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.3); /* Subtle pink shadow */
     overflow: hidden; /* Clip content inside the card */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
     max-width: 400px; /* Limit card width */
@@ -14,26 +14,26 @@
 
 .tour-card:hover {
     transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+    box-shadow: 0 6px 12px rgba(255, 182, 193, 0.4); /* Stronger pink shadow on hover */
 }
 
 .tour-card h3 {
     font-size: 1.5rem; /* Larger font for title */
     font-weight: bold; /* Bold text */
-    color: #333; /* Dark text color */
+    color: #cc0066; /* Dark pink text color */
     margin-bottom: 10px; /* Space below the title */
 }
 
 .tour-card h5 {
     font-size: 1.2rem; /* Slightly larger font for price */
     font-weight: bold; /* Bold text */
-    color: #007BFF; /* Blue color for emphasis */
+    color: #ff66a3; /* Bright pink color for emphasis */
     margin-bottom: 16px; /* Space below the price */
 }
 
 .tour-card p {
     font-size: 1rem; /* Normal font size */
-    color: #555; /* Medium gray text */
+    color: #cc6699; /* Medium pink text */
     line-height: 1.6; /* Improve readability */
     margin-bottom: 16px; /* Space below the paragraph */
 }
@@ -43,7 +43,7 @@
     padding: 10px 16px; /* Button padding */
     font-size: 1rem; /* Font size */
     color: #fff; /* White text */
-    background-color: #007BFF; /* Blue background */
+    background-color: #ff66a3; /* Bright pink background */
     border: none; /* Remove border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
@@ -51,16 +51,17 @@
 }
 
 .tour-card button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #cc0066; /* Darker pink on hover */
 }
 
 .tour-card .btn-remove {
     margin-top: 10px; /* Add space above the remove button */
-    background-color: #ff4d4d; /* Red background for remove button */
+    background-color: #ff4d88; /* Red-pink background for remove button */
+    color: #fff; /* White text for contrast */
 }
 
 .tour-card .btn-remove:hover {
-    background-color: #cc0000; /* Darker red on hover */
+    background-color: #cc0033; /* Darker red-pink on hover */
 }
 
 /* Center the cards container */
@@ -71,7 +72,8 @@
     align-items: center; /* Center vertically */
     min-height: 100vh; /* Full viewport height */
     padding: 20px; /* Add some padding */
-    background-color: #f4f4f4; /* Light background for contrast */
+    background-color: #fff; /* White background for a clean look */
+    border: 2px solid #ffe6f2; /* Light pink border for contrast */
 }
 
 /* Ensure individual cards have consistent spacing */
@@ -82,5 +84,48 @@
     width: 100%; /* Full width of the card */
     height: 200px; /* Fixed height for all images */
     object-fit: cover; /* Crop the image to fit the dimensions */
-    border-bottom: 1px solid #e0e0e0; /* Optional: Add a separator line */
+    border-bottom: 2px solid #ffb3d9; /* Optional: Add a pink separator line */
+}
+
+/* Container for the no tours message */
+.no-tours-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh; /* Center vertically */
+    background-color: #fff; /* White background for a clean look */
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.3); /* Subtle pink shadow */
+    border: 2px solid #ffe6f2; /* Light pink border for contrast */
+}
+
+/* Styling for the no tours message */
+.no-tours-message {
+    font-size: 1.5rem;
+    color: #cc0066; /* Dark pink text */
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Styling for the refresh button */
+.refresh-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff; /* White text */
+    background-color: #66cc66; /* Soft green background */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.refresh-btn:hover {
+    background-color: #33cc33; /* Darker green */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.refresh-btn:active {
+    transform: scale(0.95); /* Slightly shrink on click */
 }
